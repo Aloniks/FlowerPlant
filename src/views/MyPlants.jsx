@@ -29,14 +29,12 @@ export default function MyPlants() {
     //** id-value in the list, thereafter I add 1 to that number*/
     //** and it bacomes the id of the new event */
     function createHandler(e) {
-        e.preventDefault();
-        const highestId = plants.length > 0 ? Math.max(...plants.map(plant => plant.id)) : -1
-        const newPlant = { id: highestId + 1, name: name, scientificname: scientificname, light: light, watering: watering, soil: soil, level: level };
-        const updatedPlants = [...plants, newPlant];
-        setPlants(updatedPlants); 
-        localStorage.setItem("plants", JSON.stringify(updatedPlants));
-        navigate("/");
-    }
+    e.preventDefault();
+    const newPlant = { id: Date.now(), name, scientificname, light, watering, soil, level };
+    const updatedPlants = [...plants, newPlant];
+    setPlants(updatedPlants);
+    navigate("/");
+}
 
     return (
 
