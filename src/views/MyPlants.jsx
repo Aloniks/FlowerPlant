@@ -32,7 +32,8 @@ export default function MyPlants() {
         e.preventDefault();
         const highestId = plants.length > 0 ? Math.max(...plants.map(plant => plant.id)) : -1
         const newPlant = { id: highestId + 1, name: name, scientificname: scientificname, light: light, watering: watering, soil: soil, level: level };
-        setPlants([...plants, newPlant]);
+        const updatedPlants = [...plants, newPlant];
+        setPlants(updatedPlants); 
         localStorage.setItem("plants", JSON.stringify(updatedPlants));
         navigate("/");
     }
