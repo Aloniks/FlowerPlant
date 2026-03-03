@@ -30,7 +30,9 @@ const router = createBrowserRouter([
       }
     ]
   }
-]);
+],
+  { basename: "/FlowerPlant" }
+);
 
 function App() {
 
